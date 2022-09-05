@@ -1,3 +1,4 @@
+from logging import NullHandler
 from flask_app.config.mysqlconnection import MySQLConnection, connectToMySQL
 from flask_app.models import book
 
@@ -70,22 +71,28 @@ class Author:
         # store the result in a variable so you can reference the first index of the list
         results = connectToMySQL('books').query_db(query,data)
 
-        # store the Author object in a variable so you can access the attributes and iterate over them
-        favorite = cls(results[0])
+        # make sure to check whether or not the author has added any favorites, if not, skip this step!
+        if len(results) != 0:
+            # store the Author object in a variable so you can access the attributes and iterate over them
+            favorite = cls(results[0])
 
-        # iterate over the results and store each row in a book_data dictionary
-        for row in results:
-            book_data = {
-                'id': row.get('books.id'),
-                'title' : row.get('title'),
-                'num_pages' : row.get('num_pages'),
-                'created_at' : row.get('books.created_at'),
-                'updated_at' : row.get('books.updated_at')
-            }
+            print(f'{favorite} FAVORITE--------------------------------------------------------------------------------------')
 
-            # the book_data will be passed into an instance of a book class on each iteration, and will be appended to the authors favorites list
-            favorite.author_favorites.append(book.Book(book_data))
+            # iterate over the results and store each row in a book_data dictionary
+            for row in results:
+                book_data = {
+                    'id': row.get('books.id'),
+                    'title' : row.get('title'),
+                    'num_pages' : row.get('num_pages'),
+                    'created_at' : row.get('books.created_at'),
+                    'updated_at' : row.get('books.updated_at')
+                }
 
-        # return the instance of the author object at the end of the loop
-        return favorite
+                # the book_data will be passed into an instance of a book class on each iteration, and will be appended to the authors favorites list
+                favorite.author_favorites.append(book.Book(book_data))
+
+            # return the instance of the author object at the end of the loop
+            return favorite
+        else:
+            print("OOPSIE EMPTY TUPPPPLEEE")
 

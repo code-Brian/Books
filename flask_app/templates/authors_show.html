@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
-    <title>{ authors.name Favorites }}</title>
+    <title>{{ author.name }} Favorites </title>
 </head>
 <body>
     <div class="container d-flex mt-5 gap-5">
@@ -21,6 +21,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- if there is not a favorite, the table will leave a message saying to add a favorite -->
+                    {% if favorites.author_favorites | length() < 1 %}
+                    <tr>
+                        <td>Add a favorite, and it will show up, here!</td>
+                        <td>...</td>
+                    </tr>
+                    {% endif %}
+
+                    <!-- if there is a favorite in the authors favorites, they will populate -->
                     {% for favorite in favorites.author_favorites %}
                     <tr>
                         <td>{{ favorite.title }}</td>
