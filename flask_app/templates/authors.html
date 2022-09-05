@@ -29,17 +29,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for author in authors %}
                     <tr>
-                        <td>{ for author in authors %}</td>
+                        <td>{{ author.name }}</td>
                     </tr>
+                    {% endfor %}
                     <tr>
-                        <td>{ author.name }}</td>
-                    </tr>
-                    <tr>
-                        <td>{ endfor }}</td>
-                    </tr>
-                    <tr>
-                        <td><a href="/authors/show">Go to author by author.id</a></td>
+                        <td><a href="/authors/show">Go to author by author id</a></td>
                     </tr>
                 </tbody>
             </table>
