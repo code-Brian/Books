@@ -42,4 +42,15 @@ class Author:
         # return the result at the first index of the list within the instance of the class
         return cls(result[0])
 
+    # define a class method which queries the database to insert a new author into the authors table
+    @classmethod
+    def create(cls, data):
+        # create a query which passes in form data and creates a new author in the authors table
+        query = '''
+        INSERT INTO authors (name, created_at, updated_at)
+        VALUES (%(name)s, NOW(), NOW() );
+        '''
+        # return with the connectToMySQL statement with the query being passed into the database
+        return connectToMySQL('books').query_db(query, data)
+
 
