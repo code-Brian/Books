@@ -2,7 +2,7 @@
 
 ## Todo:
 - [x] 1 Create a new Flask project
-- [ ] 2 Use the books_schema database from the assignment in the MySQL course
+- [x] 2 Use the books_schema database from the assignment in the MySQL course
 - [ ] 3 Create a page to Add a new Author, and display all Authors in the database
 - [ ] 4 After create a new Author, redirect to the Authors page
 - [ ] 5 On Authors page, Author link will redirect to Author Show page

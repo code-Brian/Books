@@ -20,11 +20,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    { for favorite_book in authors }}
                     <tr>
-                        <td>{ favorite_book.title }}</td>
+                        <td>{ for favorite_book in authors }}</td>
                     </tr>
-                    { endfor }}
+                    <tr>
+                        <td>{ favorite_book.author }}</td>
+                    </tr>
+                    <tr>
+                        <td>{ endfor }}</td>
+                    </tr>
+
                     <tr>
                         <td>If this book has been favorited by an author, the author name will appear on this list</td>
                     </tr>
@@ -52,7 +57,6 @@
                 <input class="btn btn-primary mt-3" type="submit" value="Add">
             </form>
         </div>
-        
 
     </div>
 </body>
