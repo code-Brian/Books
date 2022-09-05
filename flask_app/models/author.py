@@ -33,7 +33,7 @@ class Author:
         # create a query for our database, and pass in the id specified
         query = '''
         SELECT * FROM authors
-        WHERE authors.id = %(id)s
+        WHERE authors.id = %(id)s;
         '''
 
         # store the query in a result variable

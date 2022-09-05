@@ -25,7 +25,17 @@ def f_author_create():
 
 
 # this will eventually get changed to pass in the author.id from the database, and redirect to the particular author.
-@app.route('/authors/show')
-def authors_show():
+@app.route('/authors/<int:id>/show')
+def authors_show(id):
+
+    # capture author id from route, and pass it to the database query to get the author information by the author id passed in
+    data = {
+        'id': id
+    }
+
+    # pass data captured into database query
+    author=Author.get_one(data)
+
     print('going to author page at authors.id...')
-    return render_template('authors_show.html')
+
+    return render_template('authors_show.html', author=author)
