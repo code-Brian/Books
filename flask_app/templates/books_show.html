@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <title>{ books.title }}</title>
+</head>
+<body>
+    <div class="container d-flex mt-5 gap-5">
+
+        <!-- container for 'favorited by' table -->
+        <div class="container">
+            <h1>Title: { books.title }}</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Favorited By:</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    { for favorite_book in authors }}
+                    <tr>
+                        <td>{ favorite_book.title }}</td>
+                    </tr>
+                    { endfor }}
+                    <tr>
+                        <td>If this book has been favorited by an author, the author name will appear on this list</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><a href="/authors">Home</a></p>
+        </div>
+
+        <!-- container for 'add to author favorites' form-->
+        <div class="container">
+            <h2>Favorite this Book to Author:</h2>
+            <form action="#">
+
+                <!-- label/select element for adding a favorite book to authors favorites list -->
+                <label class="form-label" for="author_name">Author:</label>
+                <select class="form-select" aria-label="Default select" name="author_name" id="author_name">
+                    <!-- this may be a good place to add the selected="" attribute for whatever option is the default option -->
+                    { for author in authors %}
+                    <option value="">{ author.name }}</option>
+                    { endfor %}
+                    <option value="test">test</option>
+                </select>
+                
+                <!-- submit button for adding the book to the authors favorites list -->
+                <input class="btn btn-primary mt-3" type="submit" value="Add">
+            </form>
+        </div>
+        
+
+    </div>
+</body>
+</html>

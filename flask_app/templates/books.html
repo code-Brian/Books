@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <title>Books</title>
+</head>
+<body>
+    <div class="container d-flex mt-5 gap-5">
+
+        <!-- container for 'add book' form -->
+        <div class="container">
+            <h1>Books will go here</h1>
+            <form action="#" method="post">
+                <!-- label/input for book title-->
+                <label class="form-label" for="book_title">Title</label>
+                <input class="form-control" type="text" name="book_title">
+                
+                <!-- label/input for num_pages -->
+                <label class="form-label" for="num_pages">Number of Pages:</label>
+                <input class="form-control" type="number" for="num_pages" name="num_pages">
+                
+                <!-- submit button for create new book-->
+                <input class="btn btn-primary" type="submit" value="Create">
+            </form>
+        </div>
+
+        <!-- container for 'books' table -->
+        <div class="container">
+            <h2>Books</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{ for book in books %}</td>
+                    </tr>
+                    <tr>
+                        <td>{ books.title }}</td>
+                    </tr>
+                    <tr>
+                        <td>{ endfor %}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="/books/show">Show Book at given book id</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><a href="/authors">Home</a></p>
+        </div>
+
+    </div>
+</body>
+</html>

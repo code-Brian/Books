@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <title>Authors</title>
+</head>
+<body>
+    <div class="container d-flex mt-5 gap-5">
+
+        <!-- container for 'add new author' form-->
+        <div class="container">
+            <h1>New Author</h1>
+            <form action="#" method="post">
+                <label class="form-label" for="new_author">Author Name</label>
+                <input class="form-control" type="text" name="new_author">
+                <input class="btn btn-primary mt-3" type="submit" value="Create">
+            </form>
+        </div>
+
+        <!-- container for table of authors -->
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>All Authors</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{ for author in authors %}</td>
+                    </tr>
+                    <tr>
+                        <td>{ author.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{ endfor }}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="/authors/show">Go to author by author.id</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><a href="/books">Add Book</a></p>
+        </div>
+    </div>
+</body>
+</html>
