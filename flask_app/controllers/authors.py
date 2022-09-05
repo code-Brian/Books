@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import Flask, render_template, redirect, request, session
 from flask_app.models.author import Author
+from flask_app.models.book import Book
 
 @app.route('/authors')
 def r_authors():
@@ -34,8 +35,11 @@ def authors_show(id):
     }
 
     # pass data captured into database query
-    author=Author.get_one(data)
+    author = Author.get_one(data)
+
+    # pass data captured into database query for author favorites
+    favorites = Author.get_author_favorites(data)
 
     print('going to author page at authors.id...')
 
-    return render_template('authors_show.html', author=author)
+    return render_template('authors_show.html', author=author, favorites=favorites)

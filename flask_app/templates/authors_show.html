@@ -21,12 +21,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    { for book in books %}
+                    {% for favorite in favorites.author_favorites %}
                     <tr>
-                        <td>{ book.title }}</td>
-                        <td>{ book.num_pages }}</td>
+                        <td>{{ favorite.title }}</td>
+                        <td>{{ favorite.num_pages }}</td>
                     </tr>
-                    { endfor %}
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
