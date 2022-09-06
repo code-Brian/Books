@@ -9,7 +9,13 @@ def books():
     
     return render_template('books.html', books=Book.get_all())
 
-@app.route('/books/show')
-def books_show():
+@app.route('/books/<int:id>/show')
+def books_show(id):
     print('going to individual book page at books.id')
-    return render_template('books_show.html')
+
+    # capture the incoming book id in a data dictionary
+    data = {
+        'id' : id
+    }
+
+    return render_template('books_show.html', book=Book.get_one(data), authors=Author.get_all())

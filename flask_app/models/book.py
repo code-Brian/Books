@@ -8,6 +8,7 @@ class Book:
         self.num_pages = data['num_pages']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.authors_favorited = []
 
     # create a class method to retrieve all books from the database
     @classmethod
@@ -52,6 +53,31 @@ class Book:
         '''
 
         return connectToMySQL('books').query_db(query, data)
+
+    @classmethod
+    def get_book_favorites(cls, data):
+        # store the SQL query in a variable
+        query = '''SELECT * FROM favorites
+        JOIN books ON books.id = book_id
+        LEFT JOIN authors ON authors.id = author_id
+        WHERE book_id = %(id)s;
+        '''
+
+        # store the results of the query in a variable
+        results = connectToMySQL('books').query_db(query, data)
+
+        print(f'{results} BOOKS WITH AUTHORS WHO FAVORITED THEM --------------------------------------------------------------')
+
+        if len(results) != 0:
+            favorites = cls(results[0])
+
+            # iterate over the results and store relevant data to be passed into each new instance of author
+            for row in results:
+                author_data = {
+                    'id' : row.get('author_id'),
+                    'name' : row.get('name')
+                }
+            
 
 
 

@@ -39,7 +39,7 @@
                 <tbody>
                     {% for book in books %}
                     <tr>
-                        <td>{{ book.title }}</td>
+                        <td><a href="books/{{ book.id }}/show" >{{ book.title }}</a></td>
                     </tr>
                     {% endfor %}
                     <tr>
