@@ -13,7 +13,7 @@
 - [x] 10 After creating a new book, redirect to the Books page
 - [x] 11 On Books page, Book link will redirect to Book Show page
 - [x] 12 On Book Show page, create a list with all of the authors that have favorited the book
-- [ ] 13 Create a dropdown with all the authors from the database which allows you to add a new author to the list of books favorite authors
+- [x] 13 Create a dropdown with all the authors from the database which allows you to add a new author to the list of books favorite authors
 - [ ] 14 NINJA Bonus: Author Show page only display the books in the drop down that have not already been added to the authors favorites
 - [ ] 15 NINJA Bonus: Book Show page, only display the authors in the drop down that have not already been added to the list of books favorite authors
 - [ ] TBD

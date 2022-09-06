@@ -46,11 +46,13 @@
         <!-- container for 'add to author favorites' form-->
         <div class="container">
             <h2>Favorite this Book to Author:</h2>
-            <form action="#">
+            <form action="/book/add_favorite" method="post">
+                <!-- hidden input to pass book_id into query -->
+                <input type="hidden" name="book_id" value="{{ book.id }}">
 
                 <!-- label/select element for adding a favorite book to authors favorites list -->
                 <label class="form-label" for="author_name">Author:</label>
-                <select class="form-select" aria-label="Default select" name="author_name" id="author_name">
+                <select class="form-select" aria-label="Default select" name="author_id" id="author_name">
                     <!-- this may be a good place to add the selected="" attribute for whatever option is the default option -->
                     {% for author in authors %}
                     <option value="{{ author.id }}">{{ author.name }}</option>

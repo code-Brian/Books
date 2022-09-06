@@ -34,3 +34,19 @@ def f_books_create():
     Book.create_book(data)
 
     return redirect('/books')
+
+@app.route('/book/add_favorite', methods=['POST'])
+def f_books_add_favorite():
+
+    # pass captured form data into dictionary
+    data = {
+        'book_id' : request.form.get('book_id'),
+        'author_id' : request.form.get('author_id')
+    }
+
+    # add the book to author favorites
+    Book.add_book_to_favorites(data)
+
+    print(f"{data['book_id']} BOOK DATA FROM ADD_FAVORITES BOOK FROM ------------------------")
+
+    return redirect(f"/books/{data['book_id']}/show")
