@@ -43,13 +43,20 @@
         <!-- container for 'add to author favorites' form -->
         <div class="container">
             <h2>Add Favorite to Author</h2>
-            <form action="#" method="post">
+            <form action="/author/add_favorite" method="post">
+                <!-- hidden input which passes author id into form -->
+                <input type="hidden" name="author_id" value="{{ author.id }}">
+
                 <select class="form-select" aria-label ="Default select" name="book">
-                    { for book in books % }}
+                    <!-- if there is not a book the table will leave a message saying to add one -->
+                    {% if books | length() < 1 %}
+                    <option value="no_book">Go to Books page to add a Book!</option>
+                    {% endif %}
+
+                    {% for book in books %}
                     <!-- for option value, book.id will probably be used to reference in a later query -->
-                    <option value=""> { book.title }}</option>
-                    { endfor %}
-                    <option value="test">test</option>
+                    <option value="{{ book.id }}"> {{ book.title }}</option>
+                    {% endfor %}
 
                     <!-- submit button for 'add to author favorites' form -->
                     <input class="btn btn-primary mt-3" type="submit" value="Add">

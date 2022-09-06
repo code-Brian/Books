@@ -40,6 +40,22 @@ def authors_show(id):
     # pass data captured into database query for author favorites
     favorites = Author.get_author_favorites(data)
 
+    # call the get_all functions on the books class to return an instance of all the books available to favorite
+    books = Book.get_all()
+
     print('going to author page at authors.id...')
 
-    return render_template('authors_show.html', author=author, favorites=favorites)
+    return render_template('authors_show.html', author=author, favorites=favorites, books=books)
+
+@app.route('/author/add_favorite', methods=['POST'])
+def f_author_add_favorite():
+    data = {
+        'book_id': request.form.get('book'),
+        'author_id' : request.form.get('author_id')
+    }
+
+    Book.add_book_to_favorites(data)
+
+    print(f'{data} DATA IN ADD_FAVORITES FORM------------------------------------------------------------')
+
+    return redirect(f"/authors/{data['author_id']}/show")
