@@ -55,6 +55,15 @@ class Book:
         return connectToMySQL('books').query_db(query, data)
 
     @classmethod
+    def create_book(cls, data):
+        # store the query in a variable
+        query ='''INSERT INTO books (title, num_pages, created_at, updated_at)
+        VALUES (%(title)s, %(num_pages)s, NOW(), NOW() );
+        '''
+
+        return connectToMySQL('books').query_db(query, data)
+
+    @classmethod
     def get_book_favorites(cls, data):
         # store the SQL query in a variable
         query = '''SELECT * FROM favorites

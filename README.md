@@ -10,7 +10,7 @@
 - [x] 7 Create a dropdown with all the books from the database, that allows you to add a new favorite to the Author's page you are on
 - [x] 8 Add Book link will redirect to Books page
 - [x] 9 Author drop down menu on book show page should have a list of authors from the database
-- [ ] 10 After creating a new book, redirect to the Books page
+- [x] 10 After creating a new book, redirect to the Books page
 - [ ] 11 On Books page, Book link will redirect to Book Show page
 - [ ] 12 On Book Show page, create a list with all of the authors that have favorited the book
 - [ ] 13 Create a dropdown with all the authors from the database which allows you to add a new author to the list of books favorite authors

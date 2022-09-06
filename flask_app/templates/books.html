@@ -13,14 +13,14 @@
         <!-- container for 'add book' form -->
         <div class="container">
             <h1>Add A Book</h1>
-            <form action="#" method="post">
+            <form action="/books/create" method="post">
                 <!-- label/input for book title-->
                 <label class="form-label" for="book_title">Title</label>
-                <input class="form-control" type="text" name="book_title">
+                <input class="form-control" type="text" name="title" required>
                 
                 <!-- label/input for num_pages -->
                 <label class="form-label" for="num_pages">Number of Pages:</label>
-                <input class="form-control" type="number" for="num_pages" name="num_pages">
+                <input class="form-control" type="number" for="num_pages" name="num_pages" required>
                 
                 <!-- submit button for create new book-->
                 <input class="btn btn-primary mt-3" type="submit" value="Create">
