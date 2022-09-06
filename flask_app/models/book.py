@@ -78,14 +78,21 @@ class Book:
         print(f'{results} BOOKS WITH AUTHORS WHO FAVORITED THEM --------------------------------------------------------------')
 
         if len(results) != 0:
-            favorites = cls(results[0])
+            favorite = cls(results[0])
 
             # iterate over the results and store relevant data to be passed into each new instance of author
             for row in results:
                 author_data = {
-                    'id' : row.get('author_id'),
-                    'name' : row.get('name')
+                    'id' : row.get('authors.id'),
+                    'name' : row.get('name'),
+                    'created_at' : row.get('authors.created_at'),
+                    'updated_at' : row.get('authors.updated_at')
                 }
+
+                favorite.authors_favorited.append(author.Author(author_data))
+            return favorite
+        else:
+            print("OOOPSIEEEE POOOOPSIE! EMTPY QUERY!")
             
 
 

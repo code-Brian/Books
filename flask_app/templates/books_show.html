@@ -20,19 +20,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- if no authors have favorited the book, leave a message encouraging authors to add it to their favorites-->
+                    {% if favorites.authors_favorited | length() < 1 %}
                     <tr>
-                        <td>{ for favorite_book in authors }}</td>
+                        <td>Favorite this book, and your name will be here!</td>
                     </tr>
-                    <tr>
-                        <td>{ favorite_book.author }}</td>
-                    </tr>
-                    <tr>
-                        <td>{ endfor }}</td>
-                    </tr>
+                    {% endif %}
 
+                    {% for favorite in favorites.authors_favorited %}
                     <tr>
-                        <td>If this book has been favorited by an author, the author name will appear on this list</td>
+                        <td>{{ favorite.name }}</td>
                     </tr>
+                    {% endfor %}
+
+
                 </tbody>
             </table>
 

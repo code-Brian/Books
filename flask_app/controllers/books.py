@@ -19,7 +19,7 @@ def books_show(id):
         'id' : id
     }
 
-    return render_template('books_show.html', book=Book.get_one(data), authors=Author.get_all())
+    return render_template('books_show.html', book=Book.get_one(data), authors=Author.get_all(), favorites = Book.get_book_favorites(data))
 
 @app.route('/books/create', methods=['POST'])
 def f_books_create():
