@@ -5,10 +5,10 @@
 - [x] 2 Use the books_schema database from the assignment in the MySQL course
 - [x] 3 Create a page to Add a new Author, and display all Authors in the database
 - [x] 4 After create a new Author, redirect to the Authors page
-- [x] 5 On Authors page, Author link will redirect to Author Show page
+- [x] 5 On Authors page, Author link will redirect to Author Show page 
 - [x] 6 On Author Show page, create a table with all of the books the author has favorited
 - [x] 7 Create a dropdown with all the books from the database, that allows you to add a new favorite to the Author's page you are on
-- [ ] 8 Add Book link will redirect to Books page
+- [x] 8 Add Book link will redirect to Books page
 - [ ] 9 Author drop down should have a list of authors in the database
 - [ ] 10 After creating a new book, redirect to the Books page
 - [ ] 11 On Books page, Book link will redirect to Book Show page

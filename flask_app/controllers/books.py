@@ -5,8 +5,9 @@ from flask_app import app
 
 @app.route('/books')
 def books():
-    print('going to books page')    
-    return render_template('books.html')
+    print('going to books page')
+    
+    return render_template('books.html', books=Book.get_all())
 
 @app.route('/books/show')
 def books_show():

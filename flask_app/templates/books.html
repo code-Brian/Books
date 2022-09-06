@@ -12,7 +12,7 @@
 
         <!-- container for 'add book' form -->
         <div class="container">
-            <h1>Books will go here</h1>
+            <h1>Add A Book</h1>
             <form action="#" method="post">
                 <!-- label/input for book title-->
                 <label class="form-label" for="book_title">Title</label>
@@ -37,15 +37,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for book in books %}
                     <tr>
-                        <td>{ for book in books %}</td>
+                        <td>{{ book.title }}</td>
                     </tr>
-                    <tr>
-                        <td>{ books.title }}</td>
-                    </tr>
-                    <tr>
-                        <td>{ endfor %}</td>
-                    </tr>
+                    {% endfor %}
                     <tr>
                         <td><a href="/books/show">Show Book at given book id</a></td>
                     </tr>
